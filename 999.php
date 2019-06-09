@@ -22,6 +22,14 @@ include "includes/header.php"; // local
 		<p>When the report has been created you will receive a reference # for you to lookup the report at a later date, this is the number you give to a
 		civilian for them to discuss the report with an officer</p>
 		<hr class="hr_title">
+		<?php
+			if (isset($_GET['link'])) {
+		?>
+			<p><i>This report will be linked with a <?php echo $_GET['link'] ?>, ID: <?php echo $_GET['lid'] ?></p>
+			<hr class="hr_title">
+		<?php
+			}
+		?>
 		<div class="row">
 			<div class="row">
 				<div class="input-field col s6" style="width:100%">
