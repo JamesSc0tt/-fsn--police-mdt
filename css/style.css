@@ -110,7 +110,7 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
     font-family: 'Titillium Web', sans-serif;
 }
 .d_profile_results {
-    margin-top: 75px;
+    margin-top: 40px;
 }
 .d_profile_right_left {
     margin: 30px 0 0 0;
