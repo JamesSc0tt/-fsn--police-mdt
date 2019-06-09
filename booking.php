@@ -1,7 +1,7 @@
 <?php
 $curpage = 'booking';
 include "includes/header.php"; // local
-
+  $chargees = Array();
 ?>
 <div class="container">
 
@@ -50,28 +50,30 @@ include "includes/header.php"; // local
 				<div class="acc_cont">
 					<a class="accordion">S<?php echo $catno.'.0 : '.$cat['c_name'] ?></a>
 					<div class="d_panel">
-						<?php 
+						<?php
 							foreach($maincon->query("SELECT * from penalcode_charges WHERE p_cat = ".$cat['c_id']) as $charge) {
+                $charge['jsonid'] = count($chargees);
+                array_push($chargees, $charge);
 						?>
-							<p><?php echo $charge['p_crime'] ?><span class="charge-controls"><a class="pos">+</a><a class="neg">-</a></span></p>
+							<p><?php echo $charge['p_crime'] ?><span class="charge-controls"><a class="pos" onclick="addCharge(<?php echo $charge['jsonid']?>)">+</a><a class="neg" onclick="removeCharge(<?php echo $charge['jsonid']?>)">-</a></span></p>
 						<?php
 							}
 						?>
 					</div>
 				</div>
-			<?php 
+			<?php
 				}
 			?>
         </div>
-
+        <script>
+          var charges = <?php echo json_encode($chargees) ?>;
+        </script>
         <div class="col s12">
             <h5 class="d_h5">Booking Overview</h5>
             <hr class="hr_title">
             <p>Selected charges</p>
             <div class="d_chargeoverview">
-                <p>
-                    1x Charge 1 | 2x Charge 2 | 3x Charge 3
-                </p>
+                <p></p>
             </div>
             <div class="row">
                 <div class="input-field col s12">
