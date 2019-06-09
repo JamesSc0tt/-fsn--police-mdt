@@ -50,10 +50,20 @@ include "includes/header.php"; // local
 				<?php if (isset($_GET['requireadmin'])) {?>
 					<div class='card-panel red lighten-4' style='color:black'><b>An error occurred:</b><br>This requires admin access</div>
 				<?php } ?>
-				<p><b style="color:#ffff;">Logout:</b></p>
+				<h6><b style="color:#ffff;">Logout:</b></h6>
 				<a class="btn waves-effect waves-light" href="js_system/checkLogin.php?logout" style="width:100%;">LOG OUT</a>
-				
-				<p><b style="color:#ffff;">Change Password:</b></p>
+
+        <h6 style="margin-top:30px;"><b style="color:#ffff;">Update name:</b></h6>
+        <p>Your name is currently set to: "<?php echo $_SESSION['rpname'] ?>"<br><span style="font-size:10px;">When doing this you will be logged out.</span></p>
+        <form action="js_system/updateUserName.php" method="POST">
+          <div class="col input-field" style="width:100%;margin:0px;">
+            <input name="rpname" id="name" type="text" class="input-field validate">
+            <label for="name" class="">New name</label>
+          </div>
+          <button class="btn waves-effect waves-light" type="submit" style="width:100%;">CHANGE NAME</button>
+        </form>
+
+				<h6 style="margin-top:30px;"><b style="color:#ffff;">Change Password:</b></h6>
 				<div class="col input-field" style="width:100%;margin:0px;">
 					<input name="pass1" id="email" type="text" class="input-field validate">
 					<label for="email" class="">New password</label>
