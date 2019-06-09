@@ -10,23 +10,39 @@ include "includes/header.php"; // local
                     <h5 class="d_title">Search Criminal Database</h5>
                     <div class="row">
                         <div class="input-field">
-                            <input id="crimsearch" type="text" class="">
-                            <label for="crimsearch">Enter Name...</label>
-                            <a class="waves-effect waves-light btn">Search</a>
+                            <form>
+                              <input id="search" name="search" type="text" class="">
+                              <label for="search">Enter Name...</label>
                         </div>
+                        <button type="submit" class="waves-effect waves-light btn">SEARCH</button>
+                      </form>
                         <div class="d_profile_results">
-                            <h5>Results</h5>
-                            <p><a>Jack Smith</a></p>
-                            <p><a>Brian Smith</a></p>
-                        </div>
+                            <h5>Results</h5><center>
+                            <?php
+                              if (isset($_GET['search'])) {
+                                if (strlen($_GET['search']) > 2) {
+                                $maincon = new PDO('mysql:dbname=fsn_mdt;host=fsn.life', 'fsn_mdt', 'hInCI73Sl6Z75Y65');
+                                  foreach($maincon->query("SELECT * FROM criminals WHERE name LIKE '%".$_GET['search']."%'") as $crim) {
+                            ?>
+                                  <a class="btn waves-effect waves-light" href="" style="width:90%;margin:15px;margin-top:5px;margin-bottom:0px;"><?php echo $crim['name'] ?></a>
+                            <?php
+                                  }
+                                } else {
+                                  ?>
+                                    <div class='card-panel red lighten-4' style='color:black'><b>An error occurred:</b><br>For performance, the length of your search must be more than 2 characters.</div>
+                                  <?php
+                                }
+                              }
+                            ?>
+                        </center></div>
                     </div>
                 </div>
             </div>
 			<div class="d_rightcol">
 				<?php
-					if ($_GET['lookup_id']) {
+					if (isset($_GET['lookup_id'])) {
 						$char = true;
-					} else {	
+					} else {
 						$char = false;
 					}
 				?>
@@ -73,7 +89,7 @@ include "includes/header.php"; // local
 									<th>Crime</th>
 								</tr>
 							</thead>
-					
+
 							<tbody>
 								<tr>
 									<td>Infraction</td>
@@ -105,7 +121,7 @@ include "includes/header.php"; // local
 										<th style="width:8%;"></th>
 									</tr>
 								</thead>
-						
+
 								<tbody>
 									<tr>
 										<td>Infraction</td>
