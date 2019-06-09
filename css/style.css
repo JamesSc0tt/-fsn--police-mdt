@@ -210,6 +210,11 @@ table.striped>tbody>tr:nth-child(odd) {
     font-size: 13px;
 	font-weight: normal;
 }
+
+
+/*
+	JAMES' SHIT HERE
+*/
 .js_detail {
 	line-height:30px;
 	width: 30px;
@@ -231,4 +236,50 @@ table.striped>tbody>tr:nth-child(odd) {
 }
 .js_no {
 	background-color: rgba(255,255,255,0.1) !IMPORTANT;
+}
+.reportCSS h1 {
+	font-size:26px;
+	margin-top: 5px;
+	margin-bottom: 0px;
+	color:white;
+	font-weight:bold;
+}
+
+.reportCSS h2 {
+	font-size:20px;
+	margin-top: 5px;
+	margin-bottom: 0px;
+	color:white;
+}
+
+.reportCSS h3 {
+	font-size:18px;
+	margin-top: 5px;
+	margin-bottom: 0px;
+	color:white;
+}
+
+.reportCSS ul li {
+	list-style-type: circle !IMPORTANT;
+}
+.reportCSS ul {
+	margin-top:5px;
+	margin-bottom:5px;
+	font-size:15px;
+	margin-left:30px;
+}
+
+.reportCSS ol {
+	margin-top:5px;
+	margin-bottom:5px;
+	font-size:15px;
+}
+.reportCSS p {
+	font-size:15px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#editor {
+	min-height:150px;
 }
