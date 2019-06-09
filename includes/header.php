@@ -1,7 +1,7 @@
 <!--
 	thank god duck seperated this i was about to kms
 -->
-<?php 
+<?php
 	session_start();
 	if(!isset($_SESSION['userid']) || $_SESSION['userid']==''){
 	 $logged = false;
@@ -13,17 +13,17 @@
 		 $isadmin = false;
 	 }
 	}
-	
-	
-	
-	
+
+
+
+
 	$require_log = Array('booking', 'dmv', 'warrants', 'bolos', 'admin', '999');
 	if (in_array($curpage, $require_log, false)) {
 		if (!$logged) {
 			header("Location:https://gov.fsn.life/index.php?requirelogin");
 		}
 	}
-	
+
 	$require_admin = Array('admin');
 	if (in_array($curpage, $require_admin, false)) {
 		if ($logged) {
@@ -39,7 +39,7 @@
     <head>
 		<!-- james stuffs -->
 			<script src="includes/global.js"></script>
-		
+
 		<!-- lewlew stuff -->
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -48,13 +48,13 @@
 			<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
 			<link rel="stylesheet" href="css/style.css">
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-		
+
 		<!-- james editor stuffs -->
 			<script
 			  src="https://code.jquery.com/jquery-3.4.1.min.js"
 			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 			  crossorigin="anonymous"></script>
-			  
+
 		<!-- james alert stuffs -->
 			<link rel="stylesheet" href="includes/notifications/notifications.css">
 			<script src="includes/notifications/notifications.js"></script>
@@ -100,14 +100,14 @@
               </ul>
             </div>
           </nav>
-        
+
           <ul class="sidenav" id="mobile-demo">
             <li><a href="sass.html">Sass</a></li>
             <li><a href="badges.html">Components</a></li>
             <li><a href="collapsible.html">JavaScript</a></li>
           </ul>
-        
+
 <?php
 	// global includes are here xo
-	include('js_system/otherFunctions.php');
+	include('/var/www/html/gov.fsn.life/public_html/js_system/otherFunctions.php');
 ?>
