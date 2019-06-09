@@ -14,6 +14,7 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']!=''){session_destroy();head
 			$p_salt=$r['psalt'];
 			$id=$r['id'];
 			$uname=$r['username'];
+			$rpname=$r['rpname'];
 			$dept=$r['role'];
 			$level=$r['level'];
 			$status=$r['status'];
@@ -27,6 +28,7 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']!=''){session_destroy();head
 		if($p==$salted_hash){
 			$_SESSION['userid']=$id;
 			$_SESSION['username']=$uname;
+			$_SESSION['rpname']=$rpname;
 			$_SESSION['dept']=$dept;
 			$_SESSION['level']=$level;
 			$_SESSION['status']=$status;
