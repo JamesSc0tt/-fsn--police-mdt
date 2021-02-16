@@ -1,6 +1,7 @@
 <?php
   function getUserDetails($id) {
     $con = new PDO('mysql:dbname=fsn_mdt;host=fsn.life', 'fsn_mdt', 'hInCI73Sl6Z75Y65');
+    // lol this is bad dont do this
     foreach($con->query("SELECT * from users WHERE `id` = ".$id) as $usr) {
       $user = Array();
       $user['rpname'] = $usr['rpname'];
